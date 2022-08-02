@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8">
+
+<script src="https://areidel.github.io/datos/datos.json"></script>
+
+<script>
+ 
+contenido = new XMLHttpRequest();
+function carga(){
+	contenido.open('get', 'https://areidel.github.io/datos/csv.csv', true);
+contenido.onreadystatechange = ver;
+contenido.send(null);
+}
+
+
+function ver(){
+tuC=contenido.responseText;
+document.getElementById('midiv').innerHTML = contenido.responseText}
+   
+
+function vero(){ miArre=[];num_v=0;
+	for(var i=0;i<tuC.length;i++){
+			if(tuC[i]=='\n'){num_v++; alert(num_v)}
+ }
+}   
+</script>
+</head> <body onload="carga();ver()">     
+   <div id="midiv" onclick ="vero()">fs-</div>
+</form>
+
+
+</body></html>
