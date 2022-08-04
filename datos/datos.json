@@ -1,7 +1,25 @@
-[
- {
-  "name":"",
-  "post":"",
-  "page":"",
- }
-]
+{"records":[
+
+{
+ "id":"cwWPmfBevcQ4BdLdKFwmoY",
+ "app_id":"cBW6RdT8jmW73cOw0KWPj0",
+ "entity_id":"ddNmkeidzdVyo4dmkPWPDS",
+ "values":{
+ "cccWhcI8nhdjJdKHNcOCkH":"http://www.fg.cu",
+ "ceot7dQ1zcGzZdMmoyW4Xw":"56005005",
+ "cysSkNtCjox4kWWOZdSCo8":"fotob64",
+ "dcGCoBwXLcV4oEW4_dOsyg":"Mi estudio",
+ "dcRbRcSSnayyoGymowtCkW":"un web",
+ "ddVsTFW7zdROldTKFdISoV":"Personal"
+ },
+ "rel_values":null,
+ "subform_values":{},
+ "approved":false,
+ "created_at":"2022-08-04T02:54:19.000Z",
+ "updated_at":"2022-08-04T02:54:19.000Z",
+ "added_by":"areidel22@gmail.com",
+ "user_ids":null
+}
+ 
+]}
+
