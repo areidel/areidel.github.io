@@ -1,0 +1,127 @@
+html,body,.full{
+  width:100%; height:100%; 
+  float:left;overflow:auto}
+*{transition:0ms;
+   box-sizing:border-box; margin:0px;  
+   padding:0px; overflow:auto;}
+   .nit{width:100%;text-align:center;
+     background:#ffbd40}
+#dbox,#div_page,#div_search,body{
+    background:#eaeaff
+}
+.bot{position:absolute;bottom:0px;right:0px;
+     z-index:5}
+.abs{position:absolute;top:0%;left:0%;}
+.sp{width:100%;height:50px;}
+.text{width:100%;padding:5px;float:left}
+.main{background:#999;width:100%;color:#fff;
+     padding:2px; overflow:hidden;
+     background-image: linear-gradient(#999,#888,#666,#444);
+     text-shadow:0px 0px 2px #000;
+     font-weight:bolder;
+     box-shadow:0px 1px 15px #111}
+.elem{
+			 padding:5px;
+				margin:5px;float:left;font-size:20px;}
+.back{
+				background:#000;color:#fff;padding:5px;
+				border-radius:5px;margin:5px;
+				float:right; font-size:20px;}
+
+
+#ciudad{width:60%; padding:5px;     
+  font-size:26px; border-radius:5px;
+  border:solid 1px #ff9d00; margin:10px;
+  box-shadow:0px 0px 5px #222;
+  background:#fff;}
+
+.title{width:100%; font-size:1.6em;     
+       padding:3px; float:left;}
+.title2{font-size:1.6em; padding:5px;
+       font-weight:bolder}
+.bolder{font-weight:bolder}
+.cent{text-align:center}
+
+.elementos{	width:1030px;padding:15px;}
+.elementos div{
+				width:230px; margin:10px; padding:10px;
+				border-radius:30px; float:left;
+				box-shadow:0px 0px 9px #666;
+				background:#fff;}
+.elementos div img{
+				width:100%; height:230px;
+				border-radius:30px;}
+.elementos div p{
+     padding:4px; text-align:left;
+     font-size:25px;font-weight:bolder}
+
+
+
+
+
+
+
+#casasV{font-size:2em;text-align:center;
+     color:#333}
+#casasV img{width:23%; margin:1%;
+     border-radius:5px; height:100px}
+
+#div_search{
+				width:100%;height:0px;
+				position:absolute; left:0px;
+				bottom:0px;	 z-index:10;}
+.result{
+				width:96%; padding:5px; margin:2%;}
+.result img{
+				width:30%; max-width:90px; height:90px;
+				border-radius:10px;float:left}
+.result div, .result p{
+				width:68%; float:right; padding:5px;
+				font-weight:bolder; font-size:1.3em;}
+.result p{font-size:17px; font-weight:normal}
+
+
+
+
+.result2{
+				width:96%; padding:5px; margin:2%;}
+.result2 img{
+				width:100%;
+			 max-height:390px;
+				border-radius:10px; float:left}
+.result2 div, .result2 p{
+				width:100%; float:right; padding:5px;
+				font-weight:bolder; font-size:1.3em;}
+.result2 p{font-size:17px; font-weight:normal}
+
+
+
+
+
+
+
+
+#div_page{
+				width:100%;height:0px;
+				position:absolute; left:0px;
+				bottom:0px;	 z-index:12;}
+#dbox{width:100%; min-height:20%;
+     max-height:90%;padding:10px;
+     border-radius:20px 20px 0px 0px;
+     box-shadow:0px 0px 40px #111;
+     font-size:19px;position:absolute;
+     bottom:0%; left:0%; z-index:10}
+#dbox .det{padding:15px 2px;
+     font-size:17px}
+#dbox .det a{ text-decoration:none;
+     font-size:25px}
+#dbox input{width:48%;margin:1%; padding:3px;
+     font-size:17px;float:left;height:35px}
+.admin{width:100%; border-radius:10px;
+     padding:10px; font-size:14px;
+     background:rgba(0,200,23,0.1);
+     margin:5px 0%;}
+.admin .div{
+				width:100%;float:left;
+}
+.admin .back{font-size:16px}
