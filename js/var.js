@@ -1,4 +1,4 @@
-
+alert(6);
 bonos=30; micity='Toda Cuba'
 
 citys=['Toda Cuba','Holguín']
