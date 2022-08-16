@@ -1,1 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+			<meta charset="UTF-8"><script>
+
+admin='123'
+dkey='cFW77dNSnbniZcVx0wW7nT'
+permiso=1
+imgHola='ic/1'
+keyUrl='https://quintadb.com/apps/cBW6RdT8jmW73cOw0KWPj0/dtypes/entity/ddNmkeidzdVyo4dmkPWPDS.json?rest_api_key='+dkey+'&amp;view='
+
+
+
+
+
+
+
+bonos=30; micity='Toda Cuba'
+
+citys=['Toda Cuba','Holguín']
+
+mtag=['','Cafétería', 'Hospedaje', 'Restaurant', 'Otros']
+
+
+fecha= new Date();
+dia=fecha.getDate();if(dia<10){dia='0'+dia}
+mes=fecha.getMonth()+1;if(mes<10){mes='0'+mes}
+ano=fecha.getFullYear();
+time=(ano+'-'+mes+'-'+dia+'T00:00:00.000Z')
+timeR=(ano+'-'+mes+'-'+dia)
+novoDb={
+      "id":admin,
+				"name":"Ciudad Digital",
+				"phon":"",
+				"dtag":0,
+				"fupd":"2022-08-01T01:50:30.000Z",
+				"dimg":imgHola,
+				"pass":admin,
+				"info":"Somos una app para todos aquellos que quieren acceder a las nuevas tecnologías.<br/><br/>Ya es hora de que tus servicios estén digitales y tu ciudad también. <br/><br/> Facilitamos la venta de casas, la localización de rentas, cafeterías y restaurantes tanto para los visitantes como los residentes de tu ciudad.",
+				"city":"0",
+				"addr":"Registra tu negocio, muestrale al mundo lo que haces. permite que tu visibilidad aumente",
+}
+
+db=JSON.parse(localStorage.db)
+ if(localStorage.db==undefined){
+ 			db=[novoDb]
+ }
+ db.splice(0,0,novoDb)
+ //localStorage.db=JSON.stringify(db)
+
+function tags(x,d,city){
+ div_search.style.height='0%'
+if(x!=undefined){ resultados='';cta=0;
+
+ for(var i=0; i<tdb; i++){
+//VARIABLES DE USO
+ tag=db[i].dtag
+ city=cit=db[i].city
+      if(micity==citys[0]){cit=micity}
+ img=db[i].dimg
+ name=db[i].name
+ addr=db[i].addr
+ modu=db[i].modu
+ 
+//CONDICIONES PARA MOSTRAR  
+ 		if(tag==x && cit==micity && db[i].dia>0){
+
+ //DISEÑOS BUSCADOR
+ 	if(d==1) { cta++;
+ 		resultados+='<div class="result" onclick="page('+i+',1)"> <img src="'+img+'"> <div>'+name+'</div><p>'+addr+'</p> </div>'			
+ 	}
+ 		
+ 			
+ 	if(d==2) { cta++;
+ 		resultados+='<div class="result2" onclick="page('+i+',1)"> <img src="'+img+'"> <div>'+name+' $'+modu+'</div><p>'+citys[city]+' '+addr+'</p> </div>'			
+ 	}
+ 		
+ 			
+  		}
+ }
+
+
+
+hoja='<div class="main sp abs"> <div class="elem">Ciudad Digital</div> <div class="back" onclick="tags()">Back</div> </div><div class="full"><div class="sp"></div><div class="title cent">'+cta+' en la ciudad</div>'+resultados+'</div>'
+
+ div_search.innerHTML=hoja
+ div_search.style.height='100%'
+}}
+
+function cargaDb() {
+	 bd=[]; sessionStorage.session=0
+ 			var xhr= new XMLHttpRequest();
+ 			    xhr.open('get',keyUrl);
+ 			    xhr.send(null);
+  xhr.onreadystatechange = function(){
+  if(xhr.readyState==4){
+     if(xhr.responseText!=""){
+        //localStorage.db2=xhr.responseText
+        xhr=JSON.parse(xhr.responseText)
+ //CREAR BD
+for(var i=0; i<xhr.records.length; i++){
+     lect=xhr.records[i];
+ ob={
+ "name":lect.values.bgW5ddGmjfW4azmmkka8kD,
+ "phon":lect.values.ckW7vJW5LdGiksjtH7cSoM,
+ "pass":lect.values.c8nuddISjnW59wW6SXW698,
+ "city":lect.values.avlcOTW4voW7NdK8klASoI,
+ "dtag":lect.values.ccsuRdJebcRki7ghdcI8kj,
+ "imag":lect.values.ciWOtcOgTcJOo9jmkDCCoN,
+ "addr":lect.values.ddHCk7WR5cGl8eoCoyWOOl,
+ "info":lect.values.cEW6CkWOXkl4kPkSk8wCoQ,
+ "modu":lect.values.dcPgNdNSjfWQ0gWRfTomkW,
+
+ "id":lect.id,
+ "fCre":lect.created_at,
+ "fupd":lect.updated_at,
+ },
+ bd.splice(i,0,ob);
+}
+        localStorage.db=JSON.stringify(bd)
+   iniciada=0
+ 
+  if(localStorage.ip == undefined){dataIp='';
+$.getJSON("https://api.ipify.org?format=json", function(data){ dataIp=(data.ip) 
+if(dataIp!=''){alert('your ip:'+data.ip); localStorage.ip=dataIp } })}
+   
+        alert("ACTUALIZADA db")
+        localStorage.time=timeR
+        xtc.click()
+ if(sessionStorage.car==0){sessionStorage.car=1;document.getElementById("recarga").click()}
+        home()
+     }else{
+     		alert('error al actualizar su base de datos revise la conexión')
+     }
+if(localStorage.db!=undefined){home()}
+  }
+  }			
+}
+
+
+
+function home(){
+ //VALORES INICIO
+ bonosT=casas=cafe=aloja=resta=otro=places=0
+ casasv='No hay casas en venta en tu ciudad'
+  for(var i=0; i<tdb; i++){
+
+bono=db[i].dia=bonos-(parseInt(((new Date(time).getTime())-(new Date(db[i].fupd).getTime()))/(1000*60*60*24)))
+
+
+tag=db[i].dtag
+city=cit=db[i].city
+if(micity==citys[0]){cit=micity}
+
+  //EXPLORER CITY
+  if(tag>0&&tag<5&&cit==micity&&bono>0&&db[i].name!=''){
+  				places++
+  				if(tag==1){cafe++}
+  				if(tag==2){aloja++}
+  				if(tag==3){resta++}
+  				if(tag==4){otro++}
+  		}//end explore city
+
+if(tag==5){ if(casas==0){casasv=''} casas++;
+casasv+='<img src="'+db[i].dimg+'">'
+}
+
+if(bono<0){bonosT++}
+  }//end for
+ cafes.innerHTML=cafe
+ alojas.innerHTML=aloja
+ restas.innerHTML=resta
+ otros.innerHTML=otro
+ casa.innerHTML=casas
+     casasV.innerHTML=casasv
+ dplace.innerHTML=places
+ ciudad.innerHTML=micity
+ 
+ if(localStorage.time!=timeR && permiso==1 && sessionStorage.session!=0){cargaDb()}
+}
+
+
+
+
+
+
+function admon(){
+	resultados='<div class="sp"></div><a href="go:editor"><div class="title">Administrador de red</div></a> <div class="text">Total DB <b>'+tdb+'</b><br/>Cafés <b>'+cafe+'</b><br/>Alojamiento <b>'+aloja+'</b><br/>Restaurante <b>'+resta+'</b><br/>Otros <b>'+otro+'</b><br/>Casas <b>'+casas+'</b></div><div class="admin" onclick="cargaDb()">Vencidas: '+bonosT+'</div>'
+}
+
+function inicio(){
+ tdb=db.length;
+				home()
+}
+
+
+function envio(url) {
+
+	var xhr= new XMLHttpRequest();
+ 			 xhr.open('delete',url); 			 
+ 			 xhr.send({});
+  xhr.onreadystatechange = function(){
+  if(xhr.readyState==4){
+     if(xhr.responseText!=""){
+     				alert(xhr.responseText)
+     }else{alert("error de conexión")}
+}}}
+
+
+
+
+function page(i,d){
+ div_page.style.height='0%'
+if(i!=undefined){ resultados=''
+ img=db[i].dimg    ;cero="none"
+ name=db[i].name   ;unos="inline"
+ addr=db[i].addr   ;dat=""
+ cont=db[i].info   
+ tele=db[i].phon
+
+
+if(localStorage.us==db[i].id || localStorage.us==admin){
+ deletes="'https://quintadb.com/apps/cBW6RdT8jmW73cOw0KWPj0/dtypes/"+db[i].id+".json?rest_api_key="+dkey+"'";
+
+			dat='<div class="admin"><div class="title">Acceso Administrador</div><div class="back" onclick="envio('+deletes+')"> Borrar Página</div><div class="div">Servicio pagado hasta:<br/>'+db[i].fupd+' <br/> Days '+(db[i].dia)+'</div></div>'
+}
+
+if(localStorage.us==admin){
+				dat+='<div class="admin">Control Acceso. <br/><b>'+db[i].pass+'</b> <div class="back" onclick="()">Activar</div> <div class="back" onclick="envio('+deletes+')">Eliminar</div></div>'
+}
+   
+
+
+if(d==1) {
+
+   resultados='<img src="'+img+'" class="full" onclick="dbox.style.display=cero"> <div class="back bot" onclick="dbox.style.display=unos"> info</div><div id="dbox"><div class="title bolder" onclick="acceder('+i+')">'+name+'</div>'+cont+'<div class="det"><b>Destino</b><br/> '+addr+' <br/> <a href="tel:'+tele+'">'+tele+'</a> </div>'+dat+'</div>';
+
+if(db[i].id==admin&&localStorage.us==admin){admon()}
+}
+
+				hoja='<div class="main sp abs"> <div class="elem">Ciudad Digital</div> <div class="back" onclick="page()">Back</div> </div><div class="full">'+resultados+'</div>'
+
+ div_page.innerHTML=hoja
+ div_page.style.height='100%'
+}}
+
+
+
+
+
+function acceder(i){
+		dbox.innerHTML='<div class="title">Clave de acceso</div><input type="password" id="pin"> <input type="button" value="Acceder" onclick="verifi('+i+')">Introduzca la clave de ésta página para poder configurar como administrador. '
+}
+
+function verifi(c){
+			if(pin.value==db[c].pass){localStorage.us=db[c].id;page(c,1);alert("good")}
+}
+
+
+</script>			
+<style>
+				html,body,.full{
+  width:100%; height:100%; 
+  float:left;overflow:auto}
+*{transition:0ms;
+   box-sizing:border-box; margin:0px;  
+   padding:0px; overflow:auto;}
+   .nit{width:100%;text-align:center;
+     background:#ffbd40}
+#dbox,#div_page,#div_search,body{
+    background:#eaeaff
+}
+.bot{position:absolute;bottom:0px;right:0px;
+     z-index:5}
+.abs{position:absolute;top:0%;left:0%;}
+.sp{width:100%;height:50px;}
+.text{width:100%;padding:5px;float:left}
+.main{background:#999;width:100%;color:#fff;
+     padding:2px; overflow:hidden;
+     background-image: linear-gradient(#999,#888,#666,#444);
+     text-shadow:0px 0px 2px #000;
+     font-weight:bolder;
+     box-shadow:0px 1px 15px #111}
+.elem{
+			 padding:5px;
+				margin:5px;float:left;font-size:20px;}
+.back{
+				background:#000;color:#fff;padding:5px;
+				border-radius:5px;margin:5px;
+				float:right; font-size:20px;}
+
+
+#ciudad{width:60%; padding:5px;     
+  font-size:26px; border-radius:5px;
+  border:solid 1px #ff9d00; margin:10px;
+  box-shadow:0px 0px 5px #222;
+  background:#fff;}
+
+.title{width:100%; font-size:1.6em;     
+       padding:3px; float:left;}
+.title2{font-size:1.6em; padding:5px;
+       font-weight:bolder}
+.bolder{font-weight:bolder}
+.cent{text-align:center}
+
+.elementos{	width:1030px;padding:15px;}
+.elementos div{
+				width:230px; margin:10px; padding:10px;
+				border-radius:30px; float:left;
+				box-shadow:0px 0px 9px #666;
+				background:#fff;}
+.elementos div img{
+				width:100%; height:230px;
+				border-radius:30px;}
+.elementos div p{
+     padding:4px; text-align:left;
+     font-size:25px;font-weight:bolder}
+
+
+
+
+
+
+
+#casasV{font-size:2em;text-align:center;
+     color:#333}
+#casasV img{width:23%; margin:1%;
+     border-radius:5px; height:100px}
+
+#div_search{
+				width:100%;height:0px;
+				position:absolute; left:0px;
+				bottom:0px;	 z-index:10;}
+.result{
+				width:96%; padding:5px; margin:2%;}
+.result img{
+				width:30%; max-width:90px; height:90px;
+				border-radius:10px;float:left}
+.result div, .result p{
+				width:68%; float:right; padding:5px;
+				font-weight:bolder; font-size:1.3em;}
+.result p{font-size:17px; font-weight:normal}
+
+
+
+
+.result2{
+				width:96%; padding:5px; margin:2%;}
+.result2 img{
+				width:100%;
+			 max-height:390px;
+				border-radius:10px; float:left}
+.result2 div, .result2 p{
+				width:100%; float:right; padding:5px;
+				font-weight:bolder; font-size:1.3em;}
+.result2 p{font-size:17px; font-weight:normal}
+
+
+
+
+
+
+
+
+#div_page{
+				width:100%;height:0px;
+				position:absolute; left:0px;
+				bottom:0px;	 z-index:12;}
+#dbox{width:100%; min-height:20%;
+     max-height:90%;padding:10px;
+     border-radius:20px 20px 0px 0px;
+     box-shadow:0px 0px 40px #111;
+     font-size:19px;position:absolute;
+     bottom:0%; left:0%; z-index:10}
+#dbox .det{padding:15px 2px;
+     font-size:17px}
+#dbox .det a{ text-decoration:none;
+     font-size:25px}
+#dbox input{width:48%;margin:1%; padding:3px;
+     font-size:17px;float:left;height:35px}
+.admin{width:100%; border-radius:10px;
+     padding:10px; font-size:14px;
+     background:rgba(0,200,23,0.1);
+     margin:5px 0%;}
+.admin .div{
+				width:100%;float:left;
+}
+.admin .back{font-size:16px}
+
+				
+</style>
+
+</head>
+<body onload="alert(),inicio()">
+				 <a id="xtc" href=""></a>
+				
+ <div class="main sp abs">
+ 			<div class="elem">Ciudad Digital</div>
+ 			<div class="back" onclick="page(0,1)">City</div>
+ 	</div> <div class="sp"></div>
+ 	<div class="nit">Versión libre de costo</div>
+	<div id="ciudad">Ciudad</div>
+	<div class="title2">Explore city 
+	 <span id="dplace"></span> destinos
+	</div>
+	<div>
+		<div class="elementos">
+		<div onclick="tags(1,1,micity)">
+			  <img src="ic/1">
+			  <span id="cafes"></span>Publicaciones
+			  <p>Cafeterías</p></div>
+		<div onclick="tags(2,1,micity)">
+			  <img src="ic/3">
+			  <span id="alojas"></span>Publicaciones
+			  <p>Alojamiento</p></div>
+		<div onclick="tags(3,1,micity)">
+			 <img src="ic/4">
+			 <span id="restas"></span>Publicaciones
+			 <p>Restaurantes</p></div>
+		<div onclick="tags(4,1,micity)">
+			  <img src="ic/5">
+			  <span id="otros"></span>Publicaciones
+			  <p>Otros</p></div>
+	 </div>
+	</div>
+	<div class="title2">Casas en venta
+	  <span id="casa"></span></div>
+  <div id="casasV" onclick="tags(5,2)">Cargando casas...</div>
+
+ <div id="div_search"></div>
+ <div id="div_page"></div>
+</body>
+</html>
 
