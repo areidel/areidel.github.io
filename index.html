@@ -1,33 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8">
+<head>
+			<meta charset="UTF-8"><script>
 
-<script src="https://areidel.github.io/datos/datos.json"></script>
+admin='123'
+dkey='cFW77dNSnbniZcVx0wW7nT'
+permiso=1
 
-<script>
- 
-contenido = new XMLHttpRequest();
-function carga(){
-	contenido.open('get', 'https://areidel.github.io/datos/csv.csv', true);
-contenido.onreadystatechange = ver;
-contenido.send(null);
-}
+keyUrl='https://quintadb.com/apps/cBW6RdT8jmW73cOw0KWPj0/dtypes/entity/ddNmkeidzdVyo4dmkPWPDS.json?rest_api_key='+dkey+'&amp;view='
+</script>			
+			<script src="https://areidel.github.io/js/img.js"></script>
+			<link rel="stylesheet" href="https://areidel.github.io/js/css.css">
+			<script src="https://areidel.github.io/js/cargaDb.js"></script>
+			<script src="https://areidel.github.io/js/var.js"></script>
+			<script src="https://areidel.github.io/js/index.js"></script>
+			<script src="https://areidel.github.io/js/home.js"></script>
+			<script src="https://areidel.github.io/js/db.js"></script>
+			<script src="https://areidel.github.io/js/buscador.js"></script>
+			<script src="https://areidel.github.io/js/page.js"></script>
 
+			
+</head>
+<body onload="inicio()">
+				 <a id="xtc" href=""></a>
+				
+ <div class="main sp abs">
+ 			<div class="elem">Ciudad Digital</div>
+ 			<div class="back" onclick="page(0,1)">City</div>
+ 	</div> <div class="sp"></div>
+ 	<div class="nit">Versión libre de costo</div>
+	<div id="ciudad">Ciudad</div>
+	<div class="title2">Explore city 
+	 <span id="dplace"></span> destinos
+	</div>
+	<div>
+		<div class="elementos">
+		<div onclick="tags(1,1,micity)">
+			  <img src="ic/1">
+			  <span id="cafes"></span>Publicaciones
+			  <p>Cafeterías</p></div>
+		<div onclick="tags(2,1,micity)">
+			  <img src="ic/3">
+			  <span id="alojas"></span>Publicaciones
+			  <p>Alojamiento</p></div>
+		<div onclick="tags(3,1,micity)">
+			 <img src="ic/4">
+			 <span id="restas"></span>Publicaciones
+			 <p>Restaurantes</p></div>
+		<div onclick="tags(4,1,micity)">
+			  <img src="ic/5">
+			  <span id="otros"></span>Publicaciones
+			  <p>Otros</p></div>
+	 </div>
+	</div>
+	<div class="title2">Casas en venta
+	  <span id="casa"></span></div>
+  <div id="casasV" onclick="tags(5,2)">Cargando casas...</div>
 
-function ver(){
-tuC=contenido.responseText;
-document.getElementById('midiv').innerHTML = contenido.responseText}
-   
-
-function vero(){ miArre=[];num_v=0;
-	for(var i=0;i<tuC.length;i++){
-			if(tuC[i]=='\n'){num_v++; alert(num_v)}
- }
-}   
-</script>
-</head> <body onload="carga();ver()">     
-   <div id="midiv" onclick ="vero()">fs-</div>
-</form>
-
-
-</body></html>
+ <div id="div_search"></div>
+ <div id="div_page"></div>
+</body>
+</html>
